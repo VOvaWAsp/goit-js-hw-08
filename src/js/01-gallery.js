@@ -16,7 +16,7 @@ const container = document.querySelector(".gallery")
 
 
 container.insertAdjacentHTML("beforeend", galleryList(galleryItems));
-container.addEventListener("click", handleClick);
+// container.addEventListener("click", handleClick);
 container.style.listStyle = "none";
 
 
@@ -35,13 +35,13 @@ function galleryList(arr) {
 
 
 
-function handleClick(event) {
+// function handleClick(event) {
 
-    event.preventDefault()
+    // event.preventDefault()
 
-    if (event.target === event.curruntTarget) {
-        return gallery.next();
-    }
+    // if (event.target === event.curruntTarget) {
+    //     return gallery.next();
+    // }
 
     let gallery = new SimpleLightbox('.gallery__item a', { captionsData: "alt", captionDelay: 250, overlayOpacity: 0.5});
     gallery.on('show.simplelightbox', function () {
@@ -49,4 +49,6 @@ function handleClick(event) {
         <img class="gallery__image " src="${galleryItems.original}" alt="${galleryItems.description}">
         `
     });
-}
+    return gallery.next();
+
+// }
